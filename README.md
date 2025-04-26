@@ -72,6 +72,8 @@ It supports event creation, participant registration, and soft-deletion features
 
 ### Event Routes
 
+Remember this endpoint should be prefix with the url in my case `http://glimpse.test/`
+
 | Method | Endpoint                           | Description                              |
 | :----- | :--------------------------------- | :--------------------------------------- |
 | GET    | `/api/events/`                     | List all events with available slots.    |
@@ -147,6 +149,6 @@ The pivot table event_participant automatically records participant registration
 
 Error responses include appropriate status codes (404 for not found, 422 for validation errors, etc.)
 
-```
+In addition i have also attached the postman collection
 
-```
+If you still don't understand feel free to reach out
