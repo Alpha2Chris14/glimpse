@@ -17,6 +17,7 @@ It supports event creation, participant registration, and soft-deletion features
 
 -   Copy `.env.example` to `.env`
 -   Set up database credentials:
+
     ```
     DB_CONNECTION=mysql
     DB_HOST=127.0.0.1
@@ -24,6 +25,18 @@ It supports event creation, participant registration, and soft-deletion features
     DB_DATABASE=glimpse
     DB_USERNAME=root
     DB_PASSWORD=
+    ```
+
+-   Set up mailtrap or your mail provider credentials:
+    ```
+    MAIL_MAILER=smtp
+    MAIL_HOST=sandbox.smtp.mailtrap.io
+    MAIL_PORT=2525
+    MAIL_USERNAME=##############
+    MAIL_PASSWORD=##############
+    MAIL_SCHEME=null
+    MAIL_FROM_ADDRESS="admin@glimps.com"
+    MAIL_FROM_NAME="${APP_NAME}"
     ```
 
 4. **Install dependencies**
@@ -38,7 +51,9 @@ It supports event creation, participant registration, and soft-deletion features
 7. **Serve the application**
    php artisan serve
 
-    API will be available at `http://127.0.0.1:8000/api`
+    API will be available at `http://127.0.0.1:8000/api` or since we are using laragon
+    you can access the url using `http://glimpse.test/` make sure you see the default
+    laravel sample welcome page
 
 ---
 
@@ -88,38 +103,50 @@ It supports event creation, participant registration, and soft-deletion features
 
 ```json
 {
-"name": "Tech Conference 2025",
-"start_time": "2025-06-01 09:00:00",
-"end_time": "2025-06-01 17:00:00",
-"max_participants": 100
+    "name": "Tech Conference 2025",
+    "start_time": "2025-06-01 09:00:00",
+    "end_time": "2025-06-01 17:00:00",
+    "max_participants": 100
 }
-Create Participant
-POST /api/participants/
+```
 
+### Create Participant
+
+**POST** `/api/participants/`
+
+```json
 {
-  "name": "John Doe",
-  "email": "john@example.com"
+    "name": "John Doe",
+    "email": "john@example.com"
 }
-Register Participant to Event
-POST /api/participants/register
+```
 
+### Register Participant to Event
 
+**POST** `/api/participants/register`
+
+```json
 {
-  "participant_id": 1,
-  "event_id": 1
+    "participant_id": 1,
+    "event_id": 1
 }
-Testing Instructions
-Use Postman or any API tool.
+```
 
-Set Content-Type: application/json for all requests.
+### Testing Instructions
 
-Follow the sample data examples to test creating, registering, soft deleting, restoring, and force deleting.
+**Use Postman or any API tool.**
 
-Notes
+**Set Content-Type: application/json for all requests.**
+
+**Follow the sample data examples to test creating, registering, soft deleting, restoring, and force deleting.**
+
+**Notes**
 Soft deletes are implemented using Laravel's SoftDeletes trait.
 
 The pivot table event_participant automatically records participant registrations.
 
 Error responses include appropriate status codes (404 for not found, 422 for validation errors, etc.)
+
+```
 
 ```
