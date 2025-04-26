@@ -5,10 +5,11 @@ It supports event creation, participant registration, and soft-deletion features
 
 ---
 
-## 🚀 Setup Instructions
+## Setup Instructions
 
 1. **Clone the repository**
-   git clone https://your-repo-url.git cd your-repo-folder
+   git clone https://github.com/Alpha2Chris14/glimpse.git
+   cd glimpse
 
 2. **Open Laragon** and ensure Apache, MySQL are running.
 
@@ -41,7 +42,7 @@ It supports event creation, participant registration, and soft-deletion features
 
 ---
 
-## 📄 Assumptions Made
+## Assumptions Made
 
 -   A participant can register for multiple events.
 -   An event has a maximum number of participants (`max_participants`) enforced manually during registration.
@@ -52,9 +53,9 @@ It supports event creation, participant registration, and soft-deletion features
 
 ---
 
-## 🛤 API Routes and Usage
+## API Routes and Usage
 
-### 📅 Event Routes
+### Event Routes
 
 | Method | Endpoint                           | Description                              |
 | :----- | :--------------------------------- | :--------------------------------------- |
@@ -66,7 +67,7 @@ It supports event creation, participant registration, and soft-deletion features
 | GET    | `/api/events/trashed`              | List all soft-deleted events.            |
 | GET    | `/api/events/{event}/participants` | List all participants for a given event. |
 
-### 🧑‍🤝‍🧑 Participant Routes
+### Participant Routes
 
 | Method | Endpoint                              | Description                         |
 | :----- | :------------------------------------ | :---------------------------------- |
@@ -79,7 +80,7 @@ It supports event creation, participant registration, and soft-deletion features
 
 ---
 
-## 🧪 Sample API Data
+## Sample API Data
 
 ### Create Event
 
@@ -113,8 +114,6 @@ Use Postman or any API tool.
 Set Content-Type: application/json for all requests.
 
 Follow the sample data examples to test creating, registering, soft deleting, restoring, and force deleting.
-
-Test error cases (e.g., delete non-existing participant) to verify proper error handling.
 
 Notes
 Soft deletes are implemented using Laravel's SoftDeletes trait.
